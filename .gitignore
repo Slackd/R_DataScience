@@ -28,6 +28,10 @@ vignettes/*.pdf
 /*_cache/
 /cache/
 
+# Custom Directries
+/00-Study-Mat/
+/00-Jigsaw/
+
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
