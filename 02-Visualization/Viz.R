@@ -1,13 +1,18 @@
+# Set Working Directory ----
+setwd("C:/Users/budhadis/Downloads/R_DataScience/02-Visualization")
+
+# Package & Library Calls ----
 install.packages("ggplot2")
 install.packages("ggmap")
 install.packages("GGally")
+install.packages("sp")
 
+library(sp)
 library(ggplot2)
 library(ggmap)
 library(GGally)
 
 # Using IRIS Dataset ----
-
 ir<-iris
 
 str(iris)
@@ -57,27 +62,20 @@ dev.off()
 
 
 # GGPLOT 2 ----
-
-install.packages("sp")
-
-library(sp)
-        
 data("meuse")
 head(meuse)
 
 meuse<-meuse[5,]
 
 data("Orange")
-library(ggplot2)
+
 or<-Orange
 p<-ggplot(or,aes(x=age,y=circumference, col=Tree))
 p+geom_point()
 
 str(Orange)
 
-
-
-
+# Misc Files ----
 K<-seq(2,20,by=2); for(I in K){ print(I)}
 i<-1:5; print(2*i-1)
 K<-1:10; for(I in K){ print(2*I-1)}

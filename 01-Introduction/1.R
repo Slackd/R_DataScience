@@ -1,3 +1,27 @@
+# Set Working Directory ----
+setwd("C:/Users/budhadis/Downloads/R_DataScience/01-Introduction")
+
+# Package & Library Calls ----
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("xlsxjars")
+install.packages("rJava")
+install.packages("xlsx")
+install.packages("arules")
+install.packages("lubridate")
+
+
+library(lubridate)
+library(arules)
+library(dplyr)
+library(ggplot2)
+library(rJava)
+library(xlsxjars)
+library(xlsx)
+
+# Environment Variable Declaration ----
+Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_191')
+
 data("iris")
 
 head(iris)
@@ -23,21 +47,7 @@ summary(Sepal.Length)
 detach(iris)
 getwd()
 
-install.packages("ggplot2")
-
-library(ggplot2)
-
 write.csv(iris, file = "iris.csv",  row.names = FALSE)
-
-Sys.setenv(JAVA_HOME='C:\\Program Files\\Java\\jre1.8.0_191')
-
-install.packages("xlsxjars")
-install.packages("rJava")
-install.packages("xlsx")
-
-library(rJava)
-library(xlsxjars)
-library(xlsx)
 
 getwd()
 
@@ -53,11 +63,7 @@ class(aggregate(iris$Sepal.Length, by=list(iris$Species), mean))
 
 class(tapply(iris$Sepal.Length,iris$Species,mean))
 
-install.packages("dplyr")
-
-library(dplyr)
-
-dat3<-filter(iris,Species == "setosa"|Species == "versicolor")
+dat3<-filter(iris,Species == "setosa"| Species == "versicolor")
 
 dat5<-select(iris, Sepal.Length)
 rm(list = ls())
@@ -75,9 +81,6 @@ dat9<-iris%>%filter(Sepal.Length>1.0)
 
 
 data(AdultUCI)
-install.packages("arules")
-library(arules)
-
 
 summary(AdultUCI)
 
@@ -86,8 +89,7 @@ count(AdultUCI %>%
   filter(sex == "Female" & race == "Black" & age < 50))
 
 
-install.packages("lubridate")
-library(lubridate)
+
 
 data("lakers")
 dim(lakers)
