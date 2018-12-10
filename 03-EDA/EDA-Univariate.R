@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 # Exploratory Data Analysis (EDA)
-
-||||||| merged common ancestors
-=======
 # Library Calls ----
 library(dplyr)
 
->>>>>>> 6581a0a0965978e86b521df0a9580af6bfb04d30
 # Set Working Directory ----
 setwd("~/dev/R_DataScience/03-EDA") # For mac
 setwd("C:/Users/budhadis/Downloads/R_DataScience/03-EDA") # For windows
@@ -20,13 +15,18 @@ bike<-"C:/Users/budhadis/Downloads/R_DataScience/assets/csv/bike_buyers.csv"
 
 bike_buyers<-read.csv(bike)
 
+# Univariate Analysis ----
+# Data Structures
+
+bike_buyers <- read.csv("../assets/csv/bike_buyers.csv")
+
 # Basic Data Integrity Check ----
 dim(bike_buyers) # We can see that there are 13 rows and 1000 observations.
 str(bike_buyers) # We can see the structure of the data. Appears to have been correctly imported. May need to check some more...
 
 summary(bike_buyers) # Do we need ID column? 
 summary(bike_buyers$Children) # Maybe a problem with the column as mean is 1.98?
-bike_buyers<-select(bike_buyers, -ï..ID) # Remove the ID column
+bike_buyers<-select(bike_buyers, -ID) # Remove the ID column
 
 # Change some variables from continious to categorical variables
 bike_buyers$Children<-as.factor(bike_buyers$Children)
@@ -73,9 +73,4 @@ by(bike_buyers$Income, bike_buyers$Education, median)
 
 boxplot(bike_buyers$Income~bike_buyers$Education, notch = TRUE, main = "Income Distribution among Edu Levels", col = "grey")
 
-
-# Univariate Analysis ----
-# Data Structures
-
-bike_buyers <- read.csv("../assets/csv/bike_buyers.csv")
 
