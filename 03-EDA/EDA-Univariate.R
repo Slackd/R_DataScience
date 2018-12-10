@@ -28,6 +28,8 @@ bike_buyers$Cars<-as.factor(bike_buyers$Cars)
 
 # Basic Plots to Viz the data at hand ----
 
+### Univariate Analysis ----
+
 # Income, Discrete Variable ----
 hist(bike_buyers$Income)
 plot(density(bike_buyers$Income), main="Spread of Income")
@@ -41,5 +43,28 @@ plot(bike_buyers$Marital.Status)
 summary(bike_buyers$Gender)
 plot(bike_buyers$Gender)
 
+# Children, Discrete Variable ----
+summary(bike_buyers$Children)
+plot(bike_buyers$Children)
+
+# Let's look at the number of people who bought vs. who had children and others. This might give
+# us and idea of why the people bought and a cleaner idea.
+
+bought<-filter(bike_buyers, Purchased.Bike == "Yes")
+plot(bought$Children)
+plot(bought$Marital.Status)
+plot(bought$Gender)
+plot(bought$Occupation)
+plot(bought$Home.Owner)
+plot(bought$Cars)
+
+### Multivariate Analysis ----
+library(dplyr)
+
+by(bike_buyers$Income, bike_buyers$Education, summary)
+by(bike_buyers$Income, bike_buyers$Education, mean)
+by(bike_buyers$Income, bike_buyers$Education, median)
+
+boxplot(bike_buyers$Income~bike_buyers$Education, notch = TRUE, main = "Income Distribution among Edu Levels", col = "grey")
 
 
